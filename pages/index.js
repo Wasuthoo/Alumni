@@ -11,7 +11,7 @@ export default function Home() {
         
       </Head>
       <div>
-        <h1 className={styles.title}>ระบบค้นหารายชื่อศิษย์เก่า</h1>
+        <h1 className={styles.title}>ระบบค้นหารายชื่อศิษย์เก่าเก้าเก่าา</h1>
         <h2 className={styles.title1}>ค้นหาโดยรายชื่อ  ค้นหาโดยภูมิภาค</h2> 
         
         <p className={styles.text}>Select Name</p>
