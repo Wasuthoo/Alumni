@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
-      <div className='container bg-sky-500 max-w-screen-2xl p-2'>
-        <h1 className="text-white iten-center">© OS Project 2022</h1>
+      <div className='flex justify-center '>
+        <h1 className="text-white ">© 2022 Copyright : OS Project</h1>
       </div>
     );
   }

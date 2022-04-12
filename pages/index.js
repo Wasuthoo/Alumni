@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar'
 export default function Home() {
   return (
     <div>
-      <div className="h-screen bg-gradient-to-tl from-sky-600 via-cyan-400 to-sky-300">
           <h1 className="text-3xl font-bold ml-5  p-5 py-8 ">ระบบค้นหารายชื่อศิษย์เก่า</h1>
           
           <div className='grid grid-cols-2 gap-4'> {/*แบ่งเป็น 2 colum*/}
@@ -63,6 +62,5 @@ export default function Home() {
             </div>
           </div> 
         </div>
-    </div>
   )
 }

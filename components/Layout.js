@@ -3,9 +3,11 @@ import Navbar from "./Navbar"
 
 const Layout = ({ children }) => {
   return (
-    <div className="content">
-      <Navbar />
-      { children }
+    <div className="flex flex-col h-screen justify-between bg-gradient-to-tl from-sky-600 via-cyan-400 to-sky-300">
+      <Navbar/>
+        <div className="mb-auto">
+          { children }
+        </div>
       <Footer />
     </div>
   );
