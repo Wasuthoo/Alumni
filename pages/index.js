@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 export default function Home() {
   return (
     <div>
-          <h1 className="text-3xl font-bold ml-5  p-5 py-8 ">ระบบค้นหารายชื่อศิษย์เก่า</h1>
+          <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">ระบบค้นหารายชื่อศิษย์เก่า</h1>
           
           <div className='grid grid-cols-2 gap-4'> {/*แบ่งเป็น 2 colum*/}
             <div className='p-2'> {/*colum1*/}
@@ -32,6 +32,7 @@ export default function Home() {
                 </div>
               </form>
             </div> {/*end colum1 */}
+            
             <div> {/*colum2 */}
             <form className="bg-white bg-opacity-80 shadow-md  rounded-2xl px-8 pt-6 pb-8 mt-2 mr-5 mb-4">
                 <h2 className="text-2xl text-center font-bold rounded-xl p-2 mb-2">ค้นหาโดยภูมิภาค</h2> 

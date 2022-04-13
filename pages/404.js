@@ -24,7 +24,7 @@ const NotFound = () => {
                   <Image src="/warning.png" alt="site warning" width={50} height={50} />
                 </div>
                 <div>
-                  <h1 className="text-3xl text-white font-bold">Sorry we didn’t find Anything</h1>
+                  <h1 className="text-3xl text-white font-bold">Sorry we didn’t find anything</h1>
                   <p className="text-md text-left text-white">Make sure everything is correct.</p>
                 </div>
                 
