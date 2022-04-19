@@ -35,20 +35,32 @@ export default function Home() {
             </tr>
           </thead>
           <tbody class="text-black text-center">
-            <tr class="bg-cyan-200 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
               <td class="py-3 px-6">1</td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
             </tr>
-            <tr class="bg-cyan-300 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-200 cursor-pointer duration-300">
               <td class="py-3 px-6">2</td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
             </tr>
-            <tr class="bg-cyan-400 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-300 cursor-pointer duration-300">
               <td class="py-3 px-6">3</td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+            </tr>
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-400 cursor-pointer duration-300">
+              <td class="py-3 px-6">4</td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+            </tr>
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-500 cursor-pointer duration-300">
+              <td class="py-3 px-6">5</td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>

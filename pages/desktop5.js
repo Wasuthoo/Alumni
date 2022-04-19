@@ -6,21 +6,11 @@ import Navbar from '../components/Navbar'
 export default function Home() {
   return (
   <div>
-    <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">การกระจายเชิงภูมิภาค</h1>
+    <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">รายชื่อศิษย์เก่า</h1>
       <div className="mb-8">       
         <div className="flex justify-left mt-10">
           <div className=" mb-3 xl:w-96">
-            <select className="form-select appearance-none block w-full px-3 py-1.5  text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat  
-                      border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-              <option value>ระบุภาค</option>
-              <option value="1">ภาคเหนือ</option>
-              <option value="2">ภาคกลาง</option>
-              <option value="3">ภาคตะวันออก</option>
-              <option value="4">ตะวันออกเฉียงเหนือ</option>
-              <option value="5">ภาคตะวันตก</option>
-              <option value="6">ภาคใต้</option>
-              <option value="7">ดูทั้งหมด</option>
-            </select>
+             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="ค้นหา"/>
           </div>
         </div>
       </div> 
@@ -32,23 +22,41 @@ export default function Home() {
               <th class="py-3 bg-white-800">ชื่อ</th>
               <th class="py-3 bg-white-800">นามสกุล</th>
               <th class="py-3 bg-white-800">รหัสนักศึกษา</th>
+              <th class="py-3 bg-white-800">ภูมิภาค</th>
             </tr>
           </thead>
           <tbody class="text-black text-center">
-            <tr class="bg-cyan-200 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
               <td class="py-3 px-6">1</td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
             </tr>
-            <tr class="bg-cyan-300 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-200 cursor-pointer duration-300">
               <td class="py-3 px-6">2</td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
             </tr>
-            <tr class="bg-cyan-400 cursor-pointer  duration-300">
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-300 cursor-pointer duration-300">
               <td class="py-3 px-6">3</td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+            </tr>
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-400 cursor-pointer duration-300">
+              <td class="py-3 px-6">4</td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+              <td class="py-3 px-6"> </td>
+            </tr>
+            <tr class="hover:bg-cyan-100 hover:scale-105 bg-cyan-500 cursor-pointer duration-300">
+              <td class="py-3 px-6">5</td>
+              <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
               <td class="py-3 px-6"> </td>
