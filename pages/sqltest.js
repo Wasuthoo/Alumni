@@ -59,7 +59,7 @@ connection.on("connect", err => {
 connection.connect();
 
 function queryDatabase() {
-  console.log("Reading rows from the Table...");
+  console.log("Reading rows from the Table..."); 
 
   // Read all rows from table
   const request = new Request(
