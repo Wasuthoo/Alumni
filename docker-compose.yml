@@ -1,12 +1,12 @@
 version: '3.8'
 services:
   api:
-    image: alumniapi
+    image: alumni_api 
     ports:
       - "5500:5500"
     container_name: alumniapi
   app:
-    image: alumniapp
+    image: alumni_app
     ports:
       - "3000:3000"
     container_name: alumniapp

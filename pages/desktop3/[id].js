@@ -8,7 +8,7 @@ export async function getServerSideProps(context) {
 	const ID = context.params.id
 
   //fetches data from localhost:5500/user?queries=
-  const res = await (await fetch(`http://localhost:5500/user/${ID}`)).json();
+  const res = await (await fetch(`http://api:5500/user/${ID}`)).json();
   const data = res.data;
   
   return {

@@ -12,8 +12,8 @@ export async function getServerSideProps(context) {
   const qID = query.id;
 
   //fetches data from localhost:5500/user?queries=
-  console.log(`${process.env.API}`);
-  const res = await (await fetch(`http://localhost:5500/user?queries=${qName} ${qID}&location=`)).json();
+
+  const res = await (await fetch(`http://api:5500/user?queries=${qName} ${qID}&location=`)).json();
   const data = Object.values(res.data);
   return {
       props: {data:data}

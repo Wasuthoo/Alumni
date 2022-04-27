@@ -39,9 +39,7 @@ export async function getServerSideProps(context) {
       qLocation = '';
       break;
     }
-  
-  console.log(`${process.env.API}`);
-  const res = await (await fetch(`http://localhost:5500/user?queries=&location=${qLocation}`)).json();
+  const res = await (await fetch(`http://api:5500/user?queries=&location=${qLocation}`)).json();
   const data = res.data;
   return {
       props: {data:data}
