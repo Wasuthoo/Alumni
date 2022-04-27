@@ -2,8 +2,28 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
+import { useRouter } from 'next/router'
+import React from 'react'
 
 export default function Home() {
+
+  const router = useRouter();
+
+  const [textName, setTextName] = React.useState('');
+  const [textID, setTextID] = React.useState('');
+  const [located, setLocated] = React.useState('');
+
+  const searchHandler = async(e) => {
+    e.preventDefault();
+      router.push(`/desktop5?name=${textName}&id=${textID}`);
+  }
+
+  const searchLocationHandler = (e) =>
+  {
+    e.preventDefault();
+    router.push(`/desktop4?location=${located}`);
+  }
+
   return (
     <div>
           <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">ระบบค้นหารายชื่อศิษย์เก่า</h1>
@@ -16,17 +36,31 @@ export default function Home() {
                   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                     Select Name
                   </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="ระบุชื่อ - นามสกุล"/>
+                  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    id="username" 
+                    type="text" 
+                    placeholder="ระบุชื่อ - นามสกุล"
+                    value={textName}
+                    onChange={(e) => setTextName(e.target.value)}
+                    />
                 </div>
 
                 <div className="mb-6">
                   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                     Select ID
                   </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="text" placeholder="ระบุรหัสนักศึกษา"/>
+                  <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                  id="password" 
+                  type="text" 
+                  placeholder="ระบุรหัสนักศึกษา"
+                  value={textID}
+                  onChange={(e) => setTextID(e.target.value)}
+                  />
                 </div>
                   <div className="flex justify-center">
-                    <button className="bg-sky-500 my-6 shadow-md  hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button className="bg-sky-500 my-6 shadow-md  hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" type="button"
+                      onClick = {searchHandler}
+                      >
                       ค้นหา
                     </button>
                 </div>
@@ -41,7 +75,11 @@ export default function Home() {
                   <div className="flex justify-center mt-10">
                   <div className=" mb-3 xl:w-96">
                     <select className="form-select appearance-none block w-full px-3 py-1.5  text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat
-                      border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" 
+                      aria-label="Default select example"
+                      value={located}
+                      onChange={(e) => setLocated(e.target.value)}
+                      >
                         <option value>ระบุภาค</option>
                         <option value="1">ภาคเหนือ</option>
                         <option value="2">ภาคกลาง</option>
@@ -55,7 +93,10 @@ export default function Home() {
                 </div>
                 </div>
                   <div className="flex justify-center mt-10">
-                    <button className="bg-sky-500 shadow-md my-12 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" type="button">
+                    <button className="bg-sky-500 shadow-md my-12 hover:bg-blue-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline" 
+                      type="button"
+                      onClick = {searchLocationHandler}
+                    >
                       ค้นหา
                     </button>
                 </div>

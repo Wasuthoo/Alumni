@@ -2,8 +2,58 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
+import TableList from '../components/TableList';
 
-export default function Home() {
+export async function getServerSideProps(context) {
+  const {query} = context;
+  let qLocation = query.location;
+  console.log(typeof(qLocation));
+  /*fontend       RegCode
+  1 ภาคเหนือ     1 ภาคกลาง
+  2 กลาง 2 ภาคเหนือ
+  3 ตะวันออก      3 ภาคใต้
+  4 ตะวันออกเฉียงเหนือ      4 ภาคตะวันออก
+  5 ตะวันตก     5 ภาคตะวันออกเฉียงเหนือ
+  6 ใต้      6 ภาคตะวันตก
+  */
+  switch (qLocation) {
+   case '1':
+     qLocation = '2';
+     break;
+   case '2':
+      qLocation = '1';
+      break;
+    case '3':
+      qLocation = '4';
+      break;
+    case '4':
+      qLocation = '5';
+      break;
+    case '5':
+      qLocation = '6';
+      break;
+    case '6':
+      qLocation = '3';
+      break;
+    default:
+      qLocation = '';
+      break;
+    }
+  
+  console.log(`${process.env.API}`);
+  const res = await (await fetch(`http://localhost:5500/user?queries=&location=${qLocation}`)).json();
+  const data = res.data;
+  return {
+      props: {data:data}
+  }
+}
+
+export default function Home({data}) {
+  
+  const listData = data.map((data, index) => {
+    return <TableList key={data.StudentID} Index={index+1} StudentID={data.StudentID} FName={data.FName} LName={data.LName}/>
+  })
+
   return (
   <div>
     <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">การกระจายเชิงภูมิภาค</h1>
@@ -35,7 +85,8 @@ export default function Home() {
             </tr>
           </thead>
           <tbody className="text-black text-center">
-            <tr className="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
+            {listData}
+            {/* <tr className="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
               <td className="py-3 px-6">1</td>
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
@@ -64,7 +115,7 @@ export default function Home() {
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>

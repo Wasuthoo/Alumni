@@ -1,9 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Navbar from '../components/Navbar'
+import styles from '../../styles/Home.module.css'
+import Navbar from '../../components/Navbar'
+import { useRouter } from 'next/router'
 
-export default function Home() {
+export async function getServerSideProps(context) {
+	const ID = context.params.id
+
+  //fetches data from localhost:5500/user?queries=
+  const res = await (await fetch(`http://localhost:5500/user/${ID}`)).json();
+  const data = res.data;
+  
+  return {
+    props: {data:data[0]}
+  }
+}
+
+export default function Home({data}) {
   return (
     <div>
           <h1 className="text-3xl font-bold text-indigo-900 ml-5 p-5 py-8 ">ประวัติศิษย์เก่า</h1>
@@ -20,25 +33,25 @@ export default function Home() {
             <div> {/*column2 */}
             <form className="px-8 pt-6 pb-6 -mb-2">
               <div className="box-border h-10 w-50 mt-5 p-10 bg-white bg-opacity-80 shadow-md rounded-xl  px-1 pt-1 pb-1 ml-1 mt-1 ">
-                <h2 className="text-lg text-left ml-2 mt-0.5">ชื่อ</h2> 
+                <h2 className="text-lg text-left ml-2 mt-0.5">{data.FName}</h2> 
                 </div>
               </form>
               
                <form className="px-8 pt-6 pb-6 -mb-2">
               <div className="box-border h-10 w-50 mt-5 p-10 bg-white bg-opacity-80 shadow-md rounded-xl  px-1 pt-1 pb-1 ml-1 mb-0.5 ">
-                <h2 className="text-lg text-left ml-2 mb-1">นามสกุล</h2> 
+                <h2 className="text-lg text-left ml-2 mb-1">{data.LName}</h2> 
                 </div>
               </form>
 
                <form className="px-8 pt-6 pb-6 -mb-2">
               <div className="box-border h-10 w-50 mt-5 p-10 bg-white bg-opacity-80 shadow-md rounded-xl  px-1 pt-1 pb-1 ml-1 mb-1 ">
-                <h2 className="text-lg text-left ml-2 mb-1">รหัสนักศึกษา</h2> 
+                <h2 className="text-lg text-left ml-2 mb-1">{data.StudentID}</h2> 
                 </div>
               </form>
 
               <form className="px-8 pt-6 pb-6 mb-1">
               <div className="box-border h-10 w-50 mt-5 p-10 bg-white bg-opacity-80 shadow-md rounded-xl  px-1 pt-1 pb-1 ml-1 mb-1 ">
-                <h2 className="text-lg text-left ml-2 mb-1">ภูมิภาค</h2> 
+                <h2 className="text-lg text-left ml-2 mb-1">{data.Located}</h2> 
                 </div>
               </form>
               

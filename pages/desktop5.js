@@ -2,8 +2,34 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
+import TableList from '../components/TableList';
+import { useRouter } from 'next/dist/client/router';
 
-export default function Home() {
+
+export async function getServerSideProps(context) {
+  const {query} = context;
+  const qName = query.name;
+  const qID = query.id;
+
+  //fetches data from localhost:5500/user?queries=
+  console.log(`${process.env.API}`);
+  const res = await (await fetch(`http://localhost:5500/user?queries=${qName} ${qID}&location=`)).json();
+  const data = Object.values(res.data);
+  return {
+      props: {data:data}
+  }
+}
+
+
+export default function Home({data}) {
+  const router = useRouter();
+  if(data.length == 1){
+    router.push('/desktop3/'+data[0].StudentID);
+  }
+  
+  const listData = data.map((data, index) => {
+    return <TableList key={data.StudentID} Index={index+1} StudentID={data.StudentID} FName={data.FName} LName={data.LName} Located={data.Located} />
+  })
   return (
   <div>
     <h1 className="text-3xl font-bold text-indigo-900 ml-5  p-5 py-8 ">รายชื่อศิษย์เก่า</h1>
@@ -26,7 +52,8 @@ export default function Home() {
             </tr>
           </thead>
           <tbody className="text-black text-center">
-            <tr className="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
+            {listData}
+            {/* <tr className="hover:bg-cyan-100 hover:scale-105 bg-cyan-100 cursor-pointer  duration-300">
               <td className="py-3 px-6">1</td>
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
@@ -60,7 +87,7 @@ export default function Home() {
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
               <td className="py-3 px-6"> </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
