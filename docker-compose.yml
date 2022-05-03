@@ -10,3 +10,7 @@ services:
     ports:
       - "3000:3000"
     container_name: alumniapp
+  nginx:
+    image: alumni_nginx
+    ports:
+      - 80:80

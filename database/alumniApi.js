@@ -132,6 +132,7 @@ server.listen(PORT,HOST,async function () {
     catch(err)
     {
         console.log(err);
+        throw err;
     }
     console.log('Server Listen at http://localhost:5500');
 });

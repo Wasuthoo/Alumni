@@ -24,6 +24,7 @@ ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
+RUN npm install --global pm2
 
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
@@ -42,4 +43,5 @@ EXPOSE 3000
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # CMD ["yarn", "start"]
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
+CMD [ "pm2-runtime", "npm", "--", "start" ]
